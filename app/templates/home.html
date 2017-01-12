@@ -3,7 +3,32 @@
 </section>
 
 <section>
-<h2 class="chat-rooms">Room 1</h2>
+    <h4 class="chat-rooms" ng-repeat="currentRoom in home.chatRooms">{{ currentRoom.$value }}</h4>
 </section>
 
-<!-- add ng-controller, ng-repeat, and display the database for rooms -->
+<!-- create an html form -->
+
+<md-dialog aria-label="New Room">
+    <form name="createRoomForm">
+        <md-toolbar>
+            <div class="createRoomLabel">
+                <h4>Create Room</h4>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <md-content layout-padding>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>Room Name</label>
+                        <input ng-enter="createHomeCtrl.create()" ng-model="createHomeCtrl.newRoom.name" required>
+                    </md-input-container>
+                </div>
+            </md-content>
+        </md-dialog-content>
+        <div class="enterButton">
+            <md-button>Enter</md-button>
+        </div>
+    </form>
+</md-dialog>
+
