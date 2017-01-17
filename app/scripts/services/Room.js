@@ -5,13 +5,13 @@
         
         // write a function to create new rooms
         
-        function createRoom(room) {
-            var newRoom = new Room({name : room.name});
-            newRoom.$save(firebase.database());
-        }
+        var createRoom = function(newRoomName) {
+          rooms.$add({name: newRoomName});
+        };
         
         return {
-            all: rooms
+            all: rooms,
+            createRoom: createRoom
         };
     }
     

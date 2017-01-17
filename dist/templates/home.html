@@ -1,33 +1,43 @@
-<section>
+<header>
     <h1>Bloc Chat</h1>
-</section>
+</header>
 
-<section>
-    <h4 class="chat-rooms" ng-repeat="currentRoom in home.chatRooms">{{ currentRoom.$value }}</h4>
+<aside class="left-column">
+<section class="list-rooms">
+    <h4 class="chat-rooms" ng-repeat="currentRoom in home.chatRooms" ng-click="home.chatRooms">{{ currentRoom.name }}</h4>
 </section>
 
 <!-- create an html form -->
 
-<md-dialog aria-label="New Room">
-    <form name="createRoomForm">
-        <md-toolbar>
-            <div class="createRoomLabel">
-                <h4>Create Room</h4>
-            </div>
-        </md-toolbar>
-        <md-dialog-content>
-            <md-content layout-padding>
-                <div layout layout-sm="column">
-                    <md-input-container flex>
-                        <label>Room Name</label>
-                        <input ng-enter="createHomeCtrl.create()" ng-model="createHomeCtrl.newRoom.name" required>
-                    </md-input-container>
-                </div>
-            </md-content>
-        </md-dialog-content>
-        <div class="enterButton">
-            <md-button>Enter</md-button>
-        </div>
-    </form>
-</md-dialog>
+<section class="create-room">
+    <div class="create-room-label">
+        <h4>Create Room</h4>
+    </div>
+    <p class="room-name">
+        <form ng-submit="home.room.createRoom(newRoomName)">
+            <label>Room Name:</label>
+            <input type="text" ng-model="newRoomName" required>
+            <button type="submit">Enter</button>
+        </form>
+    </p>
+</section>
+</aside>
+
+<section class="float-right-column">
+    <h4>{{ Name of Selected Room Here }}</h4>
+</section>
+
+<section class="float-right-column">
+    <p>Name : <input type="text" ng-model="newmessage.user"></p>
+    <p>Message : <input type="text" ng-model="newmessage.text"></p>
+    <button ng-click="insert.newmessage">Submit</button>
+        <ul>
+            <!-- messages displayed here -->
+            <li ng-repeat="message in messages">
+                {{message.user}}: {{message.text}}
+            </li>
+        </ul>
+</section>
+
+
 
