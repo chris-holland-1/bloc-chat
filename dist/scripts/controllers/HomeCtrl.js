@@ -3,6 +3,7 @@
        this.room = Room;
        this.message = Message;
        this.chatRooms = Room.all;
+       // this.user = BlocChatCookies;
        this.currentMessages = [];
        this.currentRoom = null;
        this.selectRoom = function(room) {

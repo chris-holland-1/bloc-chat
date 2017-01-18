@@ -3,6 +3,16 @@
 </header>
 
 <aside class="left-column">
+<section>
+    <form ng submit="home.user.$cookies">
+        <!-- check if user exists or set the user -->
+    <label>User Name:</label>
+        <input type="text" ng-model="newUser">
+        <!-- set username here & this will need to be connected to Cookies.js through controller - what is causing the error -->
+        <button type="submit">Enter</button>
+    </form>
+</section>
+    
 <section class="list-rooms">
     <h4 class="chat-rooms" ng-repeat="currentRoom in home.chatRooms" ng-click="home.selectRoom(currentRoom)">{{ currentRoom.name }}</h4>
     <!-- how to get these rooms 'clickable' and to go to the specific messages for the room -->
@@ -31,8 +41,6 @@
 
 <section class="float-right-column">
     <form ng-submit="home.message.createMessage(newMessage)">
-        <label>Name:</label>
-        <input type="text" ng-model="user">
         <label>Message:</label>
         <input type="text" ng-model="text">
         <button type="submit">Submit</button>
