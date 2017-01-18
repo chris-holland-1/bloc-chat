@@ -4,10 +4,9 @@
 
 <aside class="left-column">
 <section class="list-rooms">
-    <h4 class="chat-rooms" ng-repeat="currentRoom in home.chatRooms" ng-click="home.chatRooms">{{ currentRoom.name }}</h4>
+    <h4 class="chat-rooms" ng-repeat="currentRoom in home.chatRooms" ng-click="home.selectRoom(currentRoom)">{{ currentRoom.name }}</h4>
+    <!-- how to get these rooms 'clickable' and to go to the specific messages for the room -->
 </section>
-
-<!-- create an html form -->
 
 <section class="create-room">
     <div class="create-room-label">
@@ -24,20 +23,29 @@
 </aside>
 
 <section class="float-right-column">
-    <h4>{{ Name of Selected Room Here }}</h4>
+    <h4>{{ home.currentRoom.name }}</h4>
+    <!-- how to get this header to show the room selected? -->
 </section>
 
+<!-- create an html form -->
+
 <section class="float-right-column">
-    <p>Name : <input type="text" ng-model="newmessage.user"></p>
-    <p>Message : <input type="text" ng-model="newmessage.text"></p>
-    <button ng-click="insert.newmessage">Submit</button>
-        <ul>
-            <!-- messages displayed here -->
-            <li ng-repeat="message in messages">
-                {{message.user}}: {{message.text}}
-            </li>
-        </ul>
+    <form ng-submit="home.message.createMessage(newMessage)">
+        <label>Name:</label>
+        <input type="text" ng-model="user">
+        <label>Message:</label>
+        <input type="text" ng-model="text">
+        <button type="submit">Submit</button>
+      </form>
+</section> 
+
+<section class="float-right-column" >
+    <ul>
+        <li ng-repeat="chatMessage in home.currentMessages">{{ chatMessage.username }}: {{ chatMessage.content }}</li>
+    </ul>
 </section>
+  
+
 
 
 

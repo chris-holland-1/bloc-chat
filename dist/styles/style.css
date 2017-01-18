@@ -1,7 +1,11 @@
 .left-column {
     float: left;
+    /* margin: 1.5%; */
+    /* width: 30%; */
 }
 
 .float-right-column {
     float: center;
+    margin: 1.5%;
+    /* width: 60%; */
 }
