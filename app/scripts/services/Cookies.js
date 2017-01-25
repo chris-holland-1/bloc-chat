@@ -1,28 +1,23 @@
-(function() {
+(function () {
     function BlocChatCookies($cookies) {
         // Retrieving a cookie or user
-        var currentUser = $cookies.get('blocChatCurrentUser');
         
-        if (!currentUser || currentUser === '') {
-            // Do something to allow users to set their username --> how do I get the input here??
-            
-            // put(key, value, [options]);
-            
-            var newUser = $cookies.user;
-            $cookies.user = 'New User';
-            
-            currentUser = user;
-            
-            console.log(currentUser);
-            
-            // value = new variable or 'blocChatCurrentUser'??
-            
+        function getUser() {
+            return $cookies.get('blocChatCurrentUser');
         }
         
-        return currentUser;
+        function setUser(username) {
+            $cookies.put('blocChatCurrentUser', username);
+        }
+        
+        return {
+            getUser: getUser,
+            setUser: setUser
+        }
+    
     }
     
     angular
         .module('blocChat')
-        .run(['$cookies', BlocChatCookies]);
+        .factory('BlocChatCookies', ['$cookies', BlocChatCookies]);
 })();
