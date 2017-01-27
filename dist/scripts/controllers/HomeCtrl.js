@@ -12,15 +12,11 @@
            this.currentRoom = room;
            // filter the current messages
            this.currentMessages = this.message.getByRoomId(room.$id);
-           
+           // add messages ...
+          
            // create controller method that is invoked via ngClick or ngSubmit on the home html   
        };
-       this.addMessage = function(message) {
-           this.selectRoom = message;
-           // add new messages
-           this.currentMessages = this.message.send(message.content);
-       };
-      
+        
        console.log(Room.all);
        
        // somehow link form in view to service through here

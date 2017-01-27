@@ -14,7 +14,7 @@
             getUser: getUser,
             setUser: setUser
         }
-    
+
     }
     
     angular

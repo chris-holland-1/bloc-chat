@@ -38,7 +38,7 @@
 <!-- create an html form -->
 
 <section class="float-right-column">
-    <form ng-submit="home.message.send(newMessage)">
+    <form ng-submit="home.message.send(newMessage, home.currentRoom.$id)">
         <label>Message:</label>
         <input type="text" ng-model="newMessage">
         <button type="submit">Submit</button>
